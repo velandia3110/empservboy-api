@@ -1,13 +1,16 @@
 from flask import Flask
-from src.app.modules.customer.customer import auth_bp
+from src.app.modules.customer.customer import auth_bp as customer_bp
+from src.app.modules.company.company_data import auth_bp as company_bp
+
 
 def create_app():
     app = Flask(__name__)
 
     # Registro de los blueprints (módulos de rutas)
-    app.register_blueprint(auth_bp, url_prefix="/customer")
-    #app.register_blueprint(users_bp, url_prefix="/users")
-    #app.register_blueprint(products_bp, url_prefix="/products")
+    app.register_blueprint(customer_bp, url_prefix="/customer")
+    app.register_blueprint(company_bp, url_prefix="/company")
+    # app.register_blueprint(users_bp, url_prefix="/users")
+    # app.register_blueprint(products_bp, url_prefix="/products")
 
     @app.route("/")
     def index():

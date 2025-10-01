@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token
-from interface.customer import Customer 
+from interface.customer import Customer
 
 auth_bp = Blueprint('customer', __name__)
 #auth_bp.config['JWT_SECRET_KEY'] = 'uptc2025'  
